@@ -1,6 +1,5 @@
-import {getManager, getRepository, Repository} from "typeorm";
+import {getRepository, Repository} from "typeorm";
 import User from './user.interface'
-import Password from '../utils/password'
 import { UserModel } from "./UserModel.entity";
 
 
@@ -43,7 +42,6 @@ class UserService {
 
     public async saveUser(user: User){
         try {
-            user.password = Password.hashPassword(user.password)
             const userRepo = await this.getUserRepo()
             const newUser = await userRepo.create(user)
             await userRepo.save(newUser)
