@@ -15,6 +15,8 @@ class UserRoutes {
     public initializeControllers(){
         this.router.get(this.home, userController.getAllUsers);
         this.router.post(this.register, userController.registerUser)
+        this.router.all('*', userController.renderNotFoundPage)
+        // this.router.post(this.register, userController.registerUser)
     }
     
 }

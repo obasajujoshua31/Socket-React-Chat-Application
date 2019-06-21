@@ -1,8 +1,8 @@
-import { createConnection } from 'typeorm';
 import * as express from 'express'
 import "reflect-metadata";
 import * as logger from 'morgan'
 import * as cors from 'cors'
+import databaseConnection from './database/database.connection'
 
 
 
@@ -33,7 +33,7 @@ class App {
     }
 
     private async initializeDatabase(){
-            await createConnection()
+            await databaseConnection
     }
     public listen(){
         this.app.listen(this.port, (): void => {
