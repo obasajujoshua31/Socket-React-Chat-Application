@@ -7,12 +7,22 @@
   "license": "MIT",
   "scripts": {
     "start": "ts-node ./server/server.ts",
-    "watch": "nodemon -e ts -w ./server -x yarn start"
+    "watch": "nodemon -e ts -w ./server -x yarn start",
+    "migrate": "ts-node ./server/migration/migrate.ts",
+    "drop": "ts-node ./server/migration/drop.ts",
+    "seed": "ts-node ./server/migration/seed.ts"
   },
   "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.0",
     "@types/jsonwebtoken": "^8.3.2",
+    "@types/mysql": "^2.15.6",
+    "@types/passport": "^1.0.0",
+    "@types/passport-facebook": "^2.1.9",
+    "@types/passport-google-oauth20": "^2.0.1",
+    "@types/socket.io": "^2.1.2",
+    "@types/uuid": "^3.4.4",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
@@ -20,15 +30,17 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
     "mysql": "^2.14.1",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-google-oauth20": "^2.0.0",
     "reflect-metadata": "^0.1.10",
     "socket.io": "^2.2.0",
     "sqlite": "^3.0.3",
     "tslint": "^5.17.0",
-    "typeorm": "^0.2.18"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.27",
-    "@types/express": "^4.17.0",
     "@types/node": "^12.0.8",
     "@types/validator": "^10.11.1",
     "ts-node": "^8.3.0",

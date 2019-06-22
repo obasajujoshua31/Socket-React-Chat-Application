@@ -1,17 +1,25 @@
 import * as express from 'express'
+import * as http from 'http'
 import "reflect-metadata";
+import * as sockets from 'socket.io'
 import * as logger from 'morgan'
 import * as cors from 'cors'
 import databaseConnection from './database/database.connection'
+import setPassportMiddleware from './utils/passport'
 
 
 
 class App {
-    public app: express.Application;
+    public app: any;
     public port: number;
+    public server: any;
+    public io: any;
 
     constructor(routes: any[], port: number) {
         this.app = express()
+        this.server = http.createServer(this.app)
+        this.io = sockets(this.server)
+        this.connectSocket()
         this.port = port
         this.app.use(cors())
         this.initializeDatabase()
@@ -24,6 +32,7 @@ class App {
         this.app.use(express.json())
         this.app.use(express.urlencoded({extended: false}))
         this.app.use(logger('dev'))
+        setPassportMiddleware(this.app)
     }
 
     private initializeRoutes(routes) {
@@ -33,10 +42,24 @@ class App {
     }
 
     private async initializeDatabase(){
-            await databaseConnection
+            await databaseConnection.getConnection((err, connection) => {
+                if(err) 
+                 console.log('error in connection', err)
+            })
+            console.log('Connection established')
     }
+
+    private connectSocket(){
+        this.io.on('connection', (socket: any) => {
+            console.log('User Connected')
+            socket.on('chat-message', (message) => {
+                console.log('------', message)
+            })
+        })
+    }
+
     public listen(){
-        this.app.listen(this.port, (): void => {
+        this.server.listen(this.port, (): void => {
             console.log('Server started at', this.port)
         })
     }
