@@ -10,6 +10,8 @@
     "watch": "nodemon -e ts -w ./server -x yarn start",
     "migrate": "ts-node ./server/migration/migrate.ts",
     "drop": "ts-node ./server/migration/drop.ts",
+    "chat:migrate": "ts-node ./server/migration/chat.ts",
+    "chat_peer:migrate": "ts-node ./server/migration/chat_peers.ts",
     "seed": "ts-node ./server/migration/seed.ts"
   },
   "dependencies": {

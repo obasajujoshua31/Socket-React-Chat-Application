@@ -28,8 +28,7 @@ class UserRoutes {
         this.router.get(this.facebook, userController.facebookLogin())
         this.router.get(this.facebookCallback, userController.facebookLoginRedirect(), userController.socialUser)
         this.router.all('*', userController.renderNotFoundPage)
-    }
-    
+   }
 }
 
 export default UserRoutes

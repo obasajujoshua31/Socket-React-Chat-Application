@@ -1,0 +1,72 @@
+#logo
+	{
+		position: absolute;
+		top: 1em;
+		left: 0;
+	}
+	
+	#logo h1
+	{
+        color: #2B3F48;
+
+	}
+	
+	#logo a
+	{
+        text-decoration: none;
+        text-transform: lowercase;
+		color: #2B3F48 !important;
+    }
+    
+    #logo a:hover {
+        color: #27AE61;
+    }
+
+    	#header
+	{
+		position: relative;
+		padding: 3em 0em;
+    }
+    
+    #menu
+	{
+		position: absolute;
+		top: 2em;
+		right: 0;
+	}
+	
+	#menu ul
+	{
+		display: inline-block;
+	}
+	
+	#menu li
+	{
+		display: block;
+		float: left;
+		text-align: center;
+	}
+	
+	#menu li a, #menu li span
+	{
+		padding: 1em 1.5em;
+		letter-spacing: 1px;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 0.8em;
+		color: #2B3F48;
+	}
+	
+	#menu li:hover a, #menu li.active a, #menu li.active span
+	{
+		color:#27AE61;
+	}
+	
+	#menu .current_page_item a
+	{
+		color: #27AE61;
+	}
+	
+	#menu .icon
+	{
+	}

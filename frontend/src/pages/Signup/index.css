@@ -1,0 +1,12 @@
+.form-wrapper{
+    height: auto;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.form-wrapper h1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}

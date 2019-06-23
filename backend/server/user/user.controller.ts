@@ -102,7 +102,7 @@ export default class UserController extends BaseController {
  }
 
     public socialUser = (req: Request, res: Response, next: NextFunction) => {
-        return this.httpResponse(res, 200, 'User successfully logged in', {token: req.user.token})
+        return res.redirect(301, `http://localhost:3000/social-auth?token=${req.user.token}`)
     }
 }
 

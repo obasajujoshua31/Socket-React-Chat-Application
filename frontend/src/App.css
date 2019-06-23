@@ -1,6 +1,86 @@
-.App {
+
+	html, body
+	{
+    height: 100%;
+    overflow: scroll;
+	}
+	
+	body
+	{
+		margin: 0px;
+		padding: 0px;
+		background: #EEEEEE;
+		font-family: 'News Cycle', sans-serif;
+		font-size: 13pt;
+		font-weight: 300;
+		color: #656565;
+  }
+  
+.my-container
+	{
+		overflow: hidden;
+		margin: 0em auto;
+		width: 1000px;
+	}
+
+  .button
+	{
+		display: inline-block;
+		padding: 0em 3em;
+		background: #27AE61;
+		border-radius: 8px;
+		letter-spacing: 0.20em;
+		line-height: 4em;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 400;
+		font-size: 1em;
+		color: #FFF;
+	}
+	
+	.button:before
+	{
+		display: inline-block;
+		background: #FFC31F;
+		margin-right: 1em;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 20px;
+		text-align: center;
+		color: #272925;
+  }
+  
+  	.title
+	{
+		margin-bottom: 3em;
+	}
+	
+	.title h2
+	{
+		text-transform: lowercase;
+		font-size: 3.2em;
+	}
+	
+	.title .byline
+	{
+		font-size: 1.3em;
+		color: #6F6F6F;
+	}
+
+  .errorMsg {
+    font-size: 1.2rem;
+    color: red;
+    display: flex;
+    justify-content: center;
+  }
+/* .App {
   text-align: center;
 }
+
+
+
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -21,13 +101,14 @@
 
 .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */

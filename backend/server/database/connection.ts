@@ -1,5 +1,5 @@
 import Pool from '../database/database.connection'
-import Query, { Results } from './query'
+import Query from './query'
 
 const getResponse = (query: Query) => {
     return new Promise((resolve: any, reject: any) => {

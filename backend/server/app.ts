@@ -1,15 +1,15 @@
 import * as express from 'express'
-import * as http from 'http'
+import  *  as http from 'http'
 import "reflect-metadata";
-import * as sockets from 'socket.io'
 import * as logger from 'morgan'
 import * as cors from 'cors'
 import databaseConnection from './database/database.connection'
 import setPassportMiddleware from './utils/passport'
+import SocketService from './utils/socket'
 
 
 
-class App {
+class App{
     public app: any;
     public port: number;
     public server: any;
@@ -18,14 +18,12 @@ class App {
     constructor(routes: any[], port: number) {
         this.app = express()
         this.server = http.createServer(this.app)
-        this.io = sockets(this.server)
         this.connectSocket()
         this.port = port
         this.app.use(cors())
         this.initializeDatabase()
         this.initializeMiddlewares()
         this.initializeRoutes(routes)
-
     }
 
     private initializeMiddlewares(){
@@ -50,12 +48,8 @@ class App {
     }
 
     private connectSocket(){
-        this.io.on('connection', (socket: any) => {
-            console.log('User Connected')
-            socket.on('chat-message', (message) => {
-                console.log('------', message)
-            })
-        })
+     new SocketService(this.server)
+
     }
 
     public listen(){
