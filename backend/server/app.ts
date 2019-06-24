@@ -57,7 +57,6 @@ class App{
             console.log('Server started at', this.port)
         })
     }
-
 }
 
 export default App;

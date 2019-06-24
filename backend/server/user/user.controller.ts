@@ -104,5 +104,14 @@ export default class UserController extends BaseController {
     public socialUser = (req: Request, res: Response, next: NextFunction) => {
         return res.redirect(301, `http://localhost:3000/social-auth?token=${req.user.token}`)
     }
-}
 
+    public getUserProfile =  () => {
+        return this.asyncWrapper({
+            handler: async (req: Request, res: Response)  => {
+                const { userId } = req.params
+                const foundUser = await userService.findUser({ where: 'user_id', value: userId })
+                return this.httpResponse(res, 200, 'User retrieved', foundUser)
+            }
+        })
+    }
+}

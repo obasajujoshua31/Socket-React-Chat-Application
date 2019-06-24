@@ -54,7 +54,7 @@ class UserService {
         try {   
             let sql: string
             if(imageURL && interest){
-                 sql = `UPDATE users  SET imageURL = '${imageURL}', interest = ${interest} WHERE user_id = '${userId}'`
+                 sql = `UPDATE users  SET imageURL = '${imageURL}', interest = '${interest}' WHERE user_id = '${userId}'`
             } else if (imageURL) {
                 sql = `UPDATE users  SET imageURL = '${imageURL}' WHERE user_id = '${userId}'`
             } else {

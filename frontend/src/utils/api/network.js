@@ -21,4 +21,15 @@ export default class NetworkRequest {
             throw error.response.data
         }
     }
+
+    static async put(url, data){
+        try {
+            const response = await axios.put(`${API_URL}/${url}`, data, {headers: {
+                Authorization: localStorage.getItem('token')
+            }})
+            return response.data
+        } catch(error){
+            throw error.response.data
+        }
+    }
 }

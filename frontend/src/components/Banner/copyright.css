@@ -1,7 +1,9 @@
 
 #copyright
 	{
-        overflow: hidden;
+		overflow: hidden;
+		position: -webkit-sticky;
+		bottom: 0rem;
 		padding: 5em 0em;
 		border-top: 1px solid rgba(0,0,0,0.08);
 	}

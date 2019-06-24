@@ -1,0 +1,22 @@
+.image-container{
+    height: 250px;
+    width: 60%;
+    border-radius: 50%;
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+.modal-container{
+    width: 400px;
+    border-radius: 20px;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+.image-container img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}

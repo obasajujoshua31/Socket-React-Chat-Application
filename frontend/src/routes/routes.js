@@ -26,6 +26,9 @@ protected: [
     exact: true,
     path: '/chat',
     component: comp.Chat
+  },{
+    path: '/chat/:id',
+    component: comp.Chat
   }
 ],
 notFound: [{

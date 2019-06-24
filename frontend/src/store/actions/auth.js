@@ -3,6 +3,10 @@ import * as types from '../types/types'
 
 
 export const registerUser =  async (user, history, dispatch) => {
+    dispatch({
+        type: types.IS_LOADING
+    })
+
     try {
         const response = await NetworkRequest.post('register', user)
         localStorage.setItem('token', response.data.token)
@@ -23,6 +27,10 @@ export const registerUser =  async (user, history, dispatch) => {
 }
 
 export const loginUser = async (user, history, dispatch) =>  {
+    dispatch({
+        type: types.IS_LOADING
+    })
+
     try {
         const response = await NetworkRequest.post('login', user)
         localStorage.setItem('token', response.data.token)

@@ -1,12 +1,13 @@
 import React from 'react'
-import Header from '../Header/Header'
+import HeaderWrapper from '../Header/HeaderWrapper'
 import Copyright from '../Banner/Copyright'
+import './style.css'
 
 const Template = (props) => {
-            return (<div>
-                <Header/>
+            return (<div className='page-container'>
+                <HeaderWrapper/>
                     {props.children}    
-                <Copyright/>   
+                {/* <Copyright/>    */}
             </div>
             )
     }

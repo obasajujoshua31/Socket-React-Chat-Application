@@ -16,6 +16,11 @@ import jwtDecode from 'jwt-decode'
   
     logout(){
         localStorage.clear()
+    },
+
+    userId() {
+        const token = localStorage.getItem('token')
+        return jwtDecode(token).userId
     }
 }
 

@@ -1,0 +1,139 @@
+.col-sm-3{
+    height: auto;
+    background-color: whitesmoke;
+}
+
+.col-sm-3 h3{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.chat-wrapper{
+    height: calc(100vh - 100px)
+}
+
+.card-img{
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.user-card{
+    padding: 1rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    /* background-color: rgb(153, 187, 189); */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 4px;
+    /* justify-content: center;     */
+     border-bottom: 1px solid gray;
+    cursor: pointer;
+}
+
+
+.usercard-container{
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+}
+.user-card :hover{
+    box-shadow: 0px 5px 5px lightgray;
+}
+.user-icon{
+    /* flex: 1; */
+}
+
+.user-content{
+    /* flex: 2; */
+    display: flex;
+    flex-direction: column;
+}
+
+.user-content h5{
+    margin: 0;
+}
+
+.user-content p{
+    margin: 0;
+    color: darkgrey;
+}
+
+.content-header{
+    display: flex;
+    justify-content: center;
+}
+
+.my-messages{
+    color: black;
+}
+.content-area{
+    /* background-color: #fff; */
+    padding: 0.4rem 1.5rem;
+    height: auto;
+}
+
+
+.date{
+    color: darkgray;
+    font-size: 12px;
+}
+.message{
+    padding: 0;
+    margin: 0;
+}
+
+.sender-message-container{
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.1rem;
+    text-align: right;
+    background-color: #E7E9E9
+}
+
+.receiver-message-container{
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 1.1rem;
+    text-align: left;
+    background-color: #E2E3E2;
+}
+
+.sender-name{
+    color: darkgray;
+    font-weight: bold;
+}
+.receiver-name{
+    color: slategrey;
+    font-weight: bold;
+}
+.sender-message{
+    color: slategray;
+}
+.receiver-message{
+    color: slategrey;
+}
+
+.mypost-button{
+    margin-top: 1.2rem;
+    padding: 0.4rem 1.6rem;
+    color: white;
+    background-color: slategray;
+    border: none;
+    outline:none;
+}
+
+
+.mypost-button :hover{
+    background-color: red;
+}
+
+.form-control{
+    outline: none;
+}
+
+/* .entire-message {
+    position: relative;
+} */
+
+.chat-area{
+    padding: 0.7rem 1.5rem;
+}

@@ -1,0 +1,10 @@
+.loader{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* .page-container{
+    min-height: 100vh;
+    position: relative;
+} */

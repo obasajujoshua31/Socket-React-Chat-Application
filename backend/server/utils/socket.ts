@@ -6,19 +6,26 @@ import ChatService from '../chats/chat.service'
 class SocketService extends ChatService {
 
     public io: any;
+    public socket: any
 
     constructor(server: Server){
         super()
         this.io = sockets(server)
-        this.testConnection()
+        this.startChatting()
     }
 
-    private testConnection = () => {
+    private startChatting = () => {
         this.io.on('connection', (socket: any) => {
             console.log('Connection to Sockets established')
 
-            socket.on('chat-message', (message) => {
-                console.log('Message', message)
+            this.socket = socket;
+            const that = this
+            this.socket.on('chat-message', (data) => {
+                const {senderId, receiverId, message } = data
+                    this.postNewChat({ receiverId, senderId, message }, (chat) => {
+                        that.io.emit(`sendMessage-${receiverId}`, chat)
+                        that.io.emit(`messageSent-${senderId}`, chat)
+                    })
             })
         })
     }

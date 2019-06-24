@@ -21,9 +21,7 @@ class ChatService {
 
     public findSingleChat = async (chatId: string) => {
         const sql = `SELECT * FROM chats 
-        JOIN users ON users.user_id = chats_sender_id
-        JOIN users ON users.user_id = chats_receiver_id
-        WHERE chat_id = ${chatId}
+        WHERE chat_id = '${chatId}'
         `
         try {
             const foundChat: any = await connection({ sql, values: [] })
@@ -34,7 +32,8 @@ class ChatService {
     }
 
     public findUserChats = async (chat: Chat) => {
-        const sql = `SELECT * FROM  chats WHERE sender_id = ${chat.userId} OR receiver_id = ${chat.userId} AND sender_id=${chat.receiverId} OR ${chat.receiverId}`
+        const sql = `SELECT * FROM  chats WHERE sender_id = '${chat.userId}' AND receiver_id = '${chat.receiverId}' OR sender_id='${chat.receiverId}' AND 
+        receiver_id = '${chat.userId}' ORDER BY date ASC`
 
         try {
             const foundChats: any = await connection({ sql, values: [] })
@@ -44,7 +43,7 @@ class ChatService {
         }
     }
 
-    public postNewChat = async (payload: NewChat) => {
+    public postNewChat =  async (payload: NewChat, callback: Function) => {
         payload.chatId = uuid.v4();
         payload.date = new Date()
 
@@ -56,7 +55,7 @@ class ChatService {
         try {
             await connection({ sql, values })
             const newChat = await this.findSingleChat(payload.chatId)
-            return newChat
+            callback(newChat)
             
         } catch (error) {
             throw error
